@@ -13263,7 +13263,7 @@ In python this should be easy, right? But wait... we are sitting on device memor
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="...-the-Physics-...">... the Physics ...<a class="anchor-link" href="#...-the-Physics-...">&#182;</a></h1>
+<h1 id="...-the-physics-...">... the physics ...<a class="anchor-link" href="#...-the-physics-...">&#182;</a></h1>
 </div>
 </div>
 </div></section></section><section><section>
@@ -13475,8 +13475,8 @@ Alternating SixTrackLib <span style="color:#00aad4;">tracking</span> and PyHEADT
 </ul>
 <p>Critical aspects:</p>
 <ul>
-<li>how to avoid GPU - CPU - GPU memory transfer?</li>
 <li>how to hand over the data between the two codes?</li>
+<li>how to avoid GPU - CPU - GPU memory transfer?</li>
 <li>can <code>PyHEADTAIL</code>'s <code>PyCUDA</code> context interact with <code>SixTrackLib</code>'s initialised context? <ul>
 <li>visibility of memory to each other</li>
 <li>alternating kernel calls?</li>
@@ -13696,6 +13696,15 @@ Alternating SixTrackLib <span style="color:#00aad4;">tracking</span> and PyHEADT
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+    <img src="images/SIS100.jpg" alt="SIS100 layout" style="width: 40%;" />
+</center>
+</div>
+</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13742,7 +13751,7 @@ Alternating SixTrackLib <span style="color:#00aad4;">tracking</span> and PyHEADT
 </div>
 </div>
 
-</div><div class="fragment">
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13784,7 +13793,7 @@ Alternating SixTrackLib <span style="color:#00aad4;">tracking</span> and PyHEADT
 </div>
 </div>
 
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13849,7 +13858,7 @@ Alternating SixTrackLib <span style="color:#00aad4;">tracking</span> and PyHEADT
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="So-what-is-the-outcome-of-our-simulation?">So what is the outcome of our simulation?<a class="anchor-link" href="#So-what-is-the-outcome-of-our-simulation?">&#182;</a></h1>
+<h1 id="Outcome-of-our-simulation?">Outcome of our simulation?<a class="anchor-link" href="#Outcome-of-our-simulation?">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13912,22 +13921,9 @@ Alternating SixTrackLib <span style="color:#00aad4;">tracking</span> and PyHEADT
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slices</span> <span class="o">=</span> <span class="n">pyht_beam</span><span class="o">.</span><span class="n">get_slices</span><span class="p">(</span><span class="n">slicer</span><span class="p">,</span> <span class="n">statistics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean_y&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">imports</span> <span class="k">import</span> <span class="n">plot_intrabunch</span>
 
-<span class="n">l1</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slices0</span><span class="o">.</span><span class="n">z_centers</span><span class="p">,</span> <span class="n">slices0</span><span class="o">.</span><span class="n">mean_y</span> <span class="o">*</span> <span class="n">slices0</span><span class="o">.</span><span class="n">n_macroparticles_per_slice</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">l2</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slices</span><span class="o">.</span><span class="n">z_centers</span><span class="p">,</span> <span class="n">slices</span><span class="o">.</span><span class="n">mean_y</span> <span class="o">*</span> <span class="n">slices</span><span class="o">.</span><span class="n">n_macroparticles_per_slice</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">pyht_ring_elements</span><span class="p">:</span>
-        <span class="n">element</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">pyht_beam</span><span class="p">)</span>
-    <span class="n">slices</span> <span class="o">=</span> <span class="n">pyht_beam</span><span class="o">.</span><span class="n">get_slices</span><span class="p">(</span><span class="n">slicer</span><span class="p">,</span> <span class="n">statistics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean_y&#39;</span><span class="p">])</span>
-    <span class="n">l3</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slices</span><span class="o">.</span><span class="n">z_centers</span><span class="p">,</span> <span class="n">slices</span><span class="o">.</span><span class="n">mean_y</span> <span class="o">*</span> <span class="n">slices</span><span class="o">.</span><span class="n">n_macroparticles_per_slice</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C7&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;initial&#39;</span><span class="p">,</span> <span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="s1">&#39;final + :10&#39;</span><span class="p">],</span> 
-           <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$z$ [m]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;BPM signal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Vertical intra-bunch motion&#39;</span><span class="p">);</span>
+<span class="n">plot_intrabunch</span><span class="p">(</span><span class="n">pyht_ring_elements</span><span class="p">,</span> <span class="n">pyht_beam</span><span class="p">,</span> <span class="n">slicer</span><span class="p">,</span> <span class="n">slices0</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13983,12 +13979,23 @@ Alternating SixTrackLib <span style="color:#00aad4;">tracking</span> and PyHEADT
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sixtracklib</span> <span class="k">as</span> <span class="nn">stl</span>
+</pre></div>
 
-<span class="c1"># print current commit</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># print current commit for reference</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="n">stl_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">stl</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
 <span class="o">!</span><span class="nb">printf</span> <span class="s2">&quot;SixTrackLib &quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$stl_dir</span> <span class="o">&amp;&amp;</span> git log <span class="p">|</span> head -1
