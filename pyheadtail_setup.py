@@ -3,20 +3,20 @@ from scipy.constants import e, m_p, c, physical_constants
 
 ### SIS100 parameters (slightly modified)
 
-circumference = 1083.6
-Q_x = 10.3
-Q_y = 10.4
-Ekin_ext_eV = 29e9
-gamma = Ekin_ext_eV / (m_p * c**2) * e + 1
-charge = e
+circumference = 26658.8832
+Q_x = 64.31
+Q_y = 59.32
+p0 = 6.5e12 * e / c
 mass = m_p
+gamma = p0 / (mass * c)
+charge = e
 
-Ekin_inj_eV = 4e9
-betagamma_inj = np.sqrt((Ekin_inj_eV / (m_p * c**2) * e + 1)**2 - 1)
-epsn_x = 13e-6 * betagamma_inj
-epsn_y = 4e-6 * betagamma_inj
-sigma_z = 24.9 / 4. * 0.6
-sigma_dp = 1.1e-3 * 0.6 * 10 * 10 * 1.6
+epsn_x = 2e-6
+epsn_y = 2e-6
+beta_z = 6.4385396386E+02 * 82/75.
+sigma_z = 1e-9 / 4. * c
+
+sigma_dp = sigma_z / beta_z
 
 # transverse map
 transverse_map_kwargs = dict(
@@ -34,10 +34,10 @@ transverse_map_kwargs = dict(
 # longitudinal map
 longitudinal_map_kwargs = dict(
     circumference=circumference,
-    harmonic_list=[10],
-    voltage_list=[66e3 * 1000 * 2.5 * 25],#58.2e3 * 100],
+    harmonic_list=[35640],
+    voltage_list=[16e6],
     phi_offset_list=[0],
-    alpha_array=[8.72643**-2],
+    alpha_array=[54**-2],
     gamma_reference=gamma,
     p_increment=0,
     charge=charge,
@@ -45,13 +45,12 @@ longitudinal_map_kwargs = dict(
 )
 
 # beam parameters
-p0 = np.sqrt(gamma**2 - 1) * mass * c
 beam_kwargs = dict(
     charge=charge,
     mass=mass,
     circumference=circumference,
     gamma=gamma,
-    beta_z=sigma_z / sigma_dp,
+    beta_z=beta_z,
     epsn_x=epsn_x,
     epsn_y=epsn_y,
     epsn_z=sigma_z * sigma_dp * 4 * np.pi * p0 / e,
