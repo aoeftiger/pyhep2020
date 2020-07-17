@@ -13,5 +13,6 @@ To run the notebook talk.ipynb, you will need the following packages
 * scipy
 * matplotlib (& seaborn)
 * pycuda
+* scikit-cuda (skcuda)
 * [sixtracklib](https://github.com/sixtrack/sixtracklib/)
 * [PyHEADTAIL](https://github.com/PyCOMPLETE/PyHEADTAIL) (on develop branch as of 17.07.2020)
