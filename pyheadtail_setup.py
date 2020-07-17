@@ -1,19 +1,22 @@
 import numpy as np
-from scipy.constants import e, c, physical_constants
+from scipy.constants import e, m_p, c, physical_constants
 
 ### SIS100 parameters (slightly modified)
 
-circumference = 1083.6
-Q_x = 18.84
-Q_y = 18.73
-gamma = 1.215
-charge = 28 * e
-mass = 238 * physical_constants['atomic mass constant'][0]
+circumference = 26658.8832
+Q_x = 64.31
+Q_y = 59.32
+p0 = 6.5e12 * e / c
+mass = m_p
+gamma = p0 / (mass * c)
+charge = e
 
-epsn_x = 6e-6
-epsn_y = 2.5e-6
-sigma_z = 58 / 4. * 0.2
-sigma_dp = 0.5e-3 * 0.2 * 10
+epsn_x = 2e-6
+epsn_y = 2e-6
+beta_z = 6.4385396386E+02 * 82/75.
+sigma_z = 1e-9 / 4. * c
+
+sigma_dp = sigma_z / beta_z
 
 # transverse map
 transverse_map_kwargs = dict(
@@ -31,10 +34,10 @@ transverse_map_kwargs = dict(
 # longitudinal map
 longitudinal_map_kwargs = dict(
     circumference=circumference,
-    harmonic_list=[8],
-    voltage_list=[58.2e3 * 100],
-    phi_offset_list=[np.pi],
-    alpha_array=[15.82**-2],
+    harmonic_list=[35640],
+    voltage_list=[16e6],
+    phi_offset_list=[0],
+    alpha_array=[54**-2],
     gamma_reference=gamma,
     p_increment=0,
     charge=charge,
@@ -42,13 +45,12 @@ longitudinal_map_kwargs = dict(
 )
 
 # beam parameters
-p0 = np.sqrt(gamma**2 - 1) * mass * c
 beam_kwargs = dict(
     charge=charge,
     mass=mass,
     circumference=circumference,
     gamma=gamma,
-    beta_z=sigma_z / sigma_dp,
+    beta_z=beta_z,
     epsn_x=epsn_x,
     epsn_y=epsn_y,
     epsn_z=sigma_z * sigma_dp * 4 * np.pi * p0 / e,
