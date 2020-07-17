@@ -16,3 +16,5 @@ To run the notebook talk.ipynb, you will need the following packages
 * scikit-cuda (skcuda)
 * [sixtracklib](https://github.com/sixtrack/sixtracklib/)
 * [PyHEADTAIL](https://github.com/PyCOMPLETE/PyHEADTAIL) (on develop branch as of 17.07.2020)
+
+... and preferably have an NVIDIA GPU with CUDA installed ;-)
