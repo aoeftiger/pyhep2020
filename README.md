@@ -4,7 +4,9 @@
 
 **Authors: Adrian Oeftiger and Martin Schwinzerl**
 
-A talk on the PyHEP'20, [see indico here $\nearrow$](https://indico.cern.ch/event/882824/timetable/#52-integrating-gpu-libraries-f). See also [rendered talk on github $\nearrow$](https://aoeftiger.github.io/pyhep2020/) and [source in github repo $\nearrow$](https://github.com/aoeftiger/pyhep2020/).
+A talk on the PyHEP'20, recorded and [published on Youtube](https://www.youtube.com/watch?v=QjEEO40rCm8&t=01m18s). 
+Find the [indico time table here](https://indico.cern.ch/event/882824/timetable/#52-integrating-gpu-libraries-f).
+See also the [rendered talk slides on github](https://aoeftiger.github.io/pyhep2020/).
 
 ## How To Use
 
@@ -17,4 +19,4 @@ To run the notebook talk.ipynb, you will need the following packages
 * [sixtracklib](https://github.com/sixtrack/sixtracklib/)
 * [PyHEADTAIL](https://github.com/PyCOMPLETE/PyHEADTAIL) (on develop branch as of 17.07.2020)
 
-... and preferably have an NVIDIA GPU with CUDA installed ;-)
+... and preferably have an NVIDIA GPU available and CUDA installed ;-)
