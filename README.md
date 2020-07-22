@@ -20,3 +20,5 @@ To run the notebook talk.ipynb, you will need the following packages
 * [PyHEADTAIL](https://github.com/PyCOMPLETE/PyHEADTAIL) (on develop branch as of 17.07.2020)
 
 ... and preferably have an NVIDIA GPU available and CUDA installed ;-)
+
+(For the openCL demo of SixTrackLib you will need to compile it with openCL support (and correspondingly have an openCL platform installed on your environment). It is not a crucial part of the talk though, but do make sure you compile with CUDA support in SixTrackLib's Settings.cmake file.)
